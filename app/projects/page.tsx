@@ -20,9 +20,9 @@ export default async function ProjectsPage() {
     return acc;
   }, {} as Record<string, number>);
 
-  const featured = allProjects.find((project) => project.slug === "unkey")!;
-  const top2 = allProjects.find((project) => project.slug === "planetfall")!;
-  const top3 = allProjects.find((project) => project.slug === "highstorm")!;
+  const featured = allProjects.find((project) => project.slug === "workflow")!;
+  const top2 = allProjects.find((project) => project.slug === "iati")!;
+  const top3 = allProjects.find((project) => project.slug === "havadurumu15")!;
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
@@ -43,11 +43,9 @@ export default async function ProjectsPage() {
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            Projects
+            projects
           </h2>
-          <p className="mt-4 text-zinc-400">
-            Some of the projects are from work and some are on my own time.
-          </p>
+        
         </div>
         <div className="w-full h-px bg-zinc-800" />
 
@@ -85,24 +83,60 @@ export default async function ProjectsPage() {
                   {featured.description}
                 </p>
                 <div className="absolute bottom-4 md:bottom-8">
-                  <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
+                  {/* <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
                     Read more <span aria-hidden="true">&rarr;</span>
-                  </p>
+                  </p> */}
                 </div>
               </article>
             </Link>
           </Card>
 
-          <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
-            {[top2, top3].map((project) => (
+      
+        </div>
+
+        <div className="w-full h-px bg-zinc-800" />
+        <div className="max-w-2xl mx-auto lg:mx-0">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+            development
+          </h2>
+          <p className="mt-4 text-zinc-400">
+            products and tools that i am building
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3 border-t border-gray-900/10 md:grid-cols-3 lg:border-t-0 ">
+            {[top3].map((project) => (
               <Card key={project.slug}>
                 <Article project={project} views={views[project.slug] ?? 0} />
               </Card>
             ))}
           </div>
-        </div>
-        <div className="hidden w-full h-px md:block bg-zinc-800" />
 
+        <div className="w-full h-px bg-zinc-800" />
+        <div className="max-w-2xl mx-auto lg:mx-0">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+            digital marketing
+          </h2>
+          <p className="mt-4 text-zinc-400">
+            seo, ui & ux design and google ads services
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3 border-t border-gray-900/10 md:grid-cols-3 lg:border-t-0 ">
+            {[top2].map((project) => (
+              <Card key={project.slug}>
+                <Article project={project} views={views[project.slug] ?? 0} />
+              </Card>
+            ))}
+          </div>
+                
+        <div className="w-full h-px bg-zinc-800" />
+        <div className="max-w-2xl mx-auto lg:mx-0">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+            video & motion design
+          </h2>
+          <p className="mt-4 text-zinc-400">
+            instagram, youtube, facebook and tiktok video ads and promotional videos
+          </p>
+        </div>
         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
           <div className="grid grid-cols-1 gap-4">
             {sorted

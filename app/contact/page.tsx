@@ -1,28 +1,55 @@
 "use client";
-import { Github, Mail, Twitter } from "lucide-react";
+import { Github, Mail, Twitter, Video, Youtube, Instagram } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaVimeoV } from "react-icons/fa";
+import { FaMediumM } from "react-icons/fa";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 
 const socials = [
 	{
-		icon: <Twitter size={20} />,
-		href: "https://twitter.com/chronark_",
-		label: "Twitter",
-		handle: "@chronark_",
+		icon: <FaXTwitter size={20} />,
+		href: "https://twitter.com/volfcan",
+		label: "twitter",
+		handle: "@volfcan",
+	},
+	{
+		icon: <Instagram size={20} />,
+		href: "https://instagram.com/volfcan",
+		label: "instagram",
+		handle: "@volfcan",
 	},
 	{
 		icon: <Mail size={20} />,
-		href: "mailto:dev@chronark.com",
-		label: "Email",
-		handle: "dev@chronark.com",
+		href: "mailto:volcanbozkurt@gmail.com",
+		label: "email",
+		handle: "volcanbozkurt@gmail.com",
 	},
 	{
 		icon: <Github size={20} />,
-		href: "https://github.com/chronark",
-		label: "Github",
-		handle: "chronark",
+		href: "https://github.com/volfcan",
+		label: "github",
+		handle: "volfcan",
 	},
+	{
+		icon: <FaVimeoV size={20} />,
+		href: "https://vimeo.com/user106211751",
+		label: "vimeo",
+		handle: "volfcan"
+	},
+	{
+		icon: <Youtube size={20} />,
+		href: "https://www.youtube.com/channel/UC9CJwetU8VCeQw4oeag_zMA",
+		label: "youtube",
+		handle: "volfcan"
+	},
+	{
+		icon: <FaMediumM size={20} />,
+		href: "https://medium.com/@VolkanBozkurt_",
+		label: "medium",
+		handle: "volfcan"
+	}
 ];
 
 export default function Example() {
@@ -47,10 +74,10 @@ export default function Example() {
 								</span>{" "}
 								<div className="z-10 flex flex-col items-center">
 									<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display">
-										{s.handle}
+										{s.label}
 									</span>
 									<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
-										{s.label}
+										{s.handle}
 									</span>
 								</div>
 							</Link>

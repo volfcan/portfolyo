@@ -49,7 +49,6 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
-
 const calSans = LocalFont({
   src: "../public/fonts/CalSans-SemiBold.ttf",
   variable: "--font-calsans",

@@ -1,7 +1,15 @@
 import { Redis } from "@upstash/redis";
 import { NextRequest, NextResponse } from "next/server";
+import { Client } from '@notionhq/client'
 
 const redis = Redis.fromEnv();
+
+const notionSecret = process.env.NOTION_SECRET
+const notionDatabaseID = process.env.NOTION_DATABASE_ID
+
+const notion = new Client({ auth: notionSecret })
+
+
 export const config = {
   runtime: "edge",
 };
