@@ -11,6 +11,9 @@
   "dependencies": {
     "@next/font": "^13.5.4",
     "@next/mdx": "^13.5.4",
+    "@notion-render/bookmark-plugin": "^0.0.2",
+    "@notion-render/client": "^0.0.2",
+    "@notion-render/hljs-plugin": "^0.0.2",
     "@notionhq/client": "^2.2.13",
     "@upstash/redis": "^1.23.3",
     "contentlayer": "^0.3.4",

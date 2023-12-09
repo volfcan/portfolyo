@@ -3,6 +3,7 @@ import { getDatabase } from '@/lib/notion';
 import Text from '../components/text';
 import styles from '@/app/index.module.css';
 import { Navigation } from "../components/nav";
+import { Key } from 'react';
 
 
 
@@ -14,7 +15,7 @@ async function getPosts() {
 
 export default async function Page() {
   const posts = await getPosts();
-  console.log(posts[0]?.last_edited_time)
+  console.log(posts[0])
   return (
     
     <div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
@@ -25,22 +26,22 @@ export default async function Page() {
         <div className="w-full h-px bg-zinc-800" />
         <ol>
           {posts.map((post) => {
-            const date = new Date(post.last_edited_time).toLocaleString(
-              'en-US',
-              {
+            let date = null;
+            if (post.properties?.last_edited_time) {
+              date = new Date(post.properties.last_edited_time.toString()).toLocaleString('en-US', {
                 month: 'short',
                 day: '2-digit',
                 year: 'numeric',
-              },
-            );
-            const slug = post.properties?.Slug?.rich_text[0].text.content;
-            const link = post.properties?.url.url;
+              });
+            }
+            const link = post.properties.url.url;
+            const title = post.properties.Title.title;
             const category = post.properties?.category?.multi_select[0]?.name
             return (
               <li key={post.id} >
                 <h3 className='text-gray-100 text-2xl'>
                   <Link href={link}>
-                    <Text title={post.properties?.Title?.title} />
+                    <Text title={title} />
                   </Link>
                 </h3>
                 <div className='inline-block bg-gray-300/20 p-1 rounded'>
