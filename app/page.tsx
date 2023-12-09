@@ -9,10 +9,6 @@ const navigation = [
   { name: "researches", href: "/researches" },
 ];
 
-
-
-
-
 export default async function Home() {
   return (
   
