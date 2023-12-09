@@ -21,15 +21,16 @@ export default async function ProjectsPage() {
   }, {} as Record<string, number>);
 
   const featured = allProjects.find((project) => project.slug === "workflow")!;
-  const top2 = allProjects.find((project) => project.slug === "iati")!;
-  const top3 = allProjects.find((project) => project.slug === "havadurumu15")!;
+  const top3 = allProjects.find((project) => project.slug === "havadurumu15" )!;
+  const top4 = allProjects.find((project) => project.slug === "volfcan.com" )!;
+  const top5 = allProjects.find((project) => project.slug === "flora-garden" )!;
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
       (project) =>
         project.slug !== featured.slug &&
-        project.slug !== top2.slug &&
-        project.slug !== top3.slug,
+        project.slug !== top3.slug &&
+        project.slug !== top4.slug,
     )
     .sort(
       (a, b) =>
@@ -104,7 +105,7 @@ export default async function ProjectsPage() {
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3 border-t border-gray-900/10 md:grid-cols-3 lg:border-t-0 ">
-            {[top3].map((project) => (
+            {[top3, top4].map((project) => (
               <Card key={project.slug}>
                 <Article project={project} views={views[project.slug] ?? 0} />
               </Card>
@@ -112,7 +113,7 @@ export default async function ProjectsPage() {
           </div>
 
         <div className="w-full h-px bg-zinc-800" />
-        <div className="max-w-2xl mx-auto lg:mx-0">
+        {/* <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             digital marketing
           </h2>
@@ -126,12 +127,12 @@ export default async function ProjectsPage() {
                 <Article project={project} views={views[project.slug] ?? 0} />
               </Card>
             ))}
-          </div>
+          </div> */}
                 
-        <div className="w-full h-px bg-zinc-800" />
+        {/* <div className="w-full h-px bg-zinc-800" /> */}
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            video & motion design
+            content marketing & design
           </h2>
           <p className="mt-4 text-zinc-400">
             instagram, youtube, facebook and tiktok video ads and promotional videos
@@ -170,3 +171,6 @@ export default async function ProjectsPage() {
     </div>
   );
 }
+
+
+
