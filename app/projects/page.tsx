@@ -24,6 +24,9 @@ export default async function ProjectsPage() {
   const top3 = allProjects.find((project) => project.slug === "havadurumu15" )!;
   const top4 = allProjects.find((project) => project.slug === "volfcan.com" )!;
   const top5 = allProjects.find((project) => project.slug === "flora-garden" )!;
+  const top6 = allProjects.find((project) => project.slug === "image-classifier" )!;
+  const top7 = allProjects.find((project) => project.slug === "price-scraper" )!;
+  const top8 = allProjects.find((project) => project.slug === "twitch-clone" )!;
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
@@ -98,14 +101,14 @@ export default async function ProjectsPage() {
         <div className="w-full h-px bg-zinc-800" />
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            development
+            products
           </h2>
           <p className="mt-4 text-zinc-400">
-            products and tools that i am building
+            products and tools i am currently building
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3 border-t border-gray-900/10 md:grid-cols-3 lg:border-t-0 ">
-            {[top3, top4].map((project) => (
+            {[top3, top7, top4, top6, top8].map((project) => (
               <Card key={project.slug}>
                 <Article project={project} views={views[project.slug] ?? 0} />
               </Card>
@@ -135,7 +138,7 @@ export default async function ProjectsPage() {
             content marketing & design
           </h2>
           <p className="mt-4 text-zinc-400">
-            instagram, youtube, facebook and tiktok video ads and promotional videos
+            instagram, youtube, facebook and tiktok promotional videos
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_TLS_REJECT_UNAUTHORIZED=0 next start",
     "fmt": "pnpm rome check . --apply-unsafe && pnpm rome format . --write"
   },
   "dependencies": {
@@ -16,6 +16,7 @@
     "@notion-render/hljs-plugin": "^0.0.2",
     "@notionhq/client": "^2.2.13",
     "@upstash/redis": "^1.23.3",
+    "axios": "^1.6.2",
     "contentlayer": "^0.3.4",
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.284.0",
@@ -37,7 +38,7 @@
     "@opentelemetry/api": "1.6.0",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.10",
-    "@types/node": "^20.8.4",
+    "@types/node": "^18.19.0",
     "@types/react": "^18.2.28",
     "@types/react-dom": "^18.2.13",
     "autoprefixer": "^10.4.16",
