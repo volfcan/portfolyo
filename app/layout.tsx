@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     title: "volfcan.com",
     description:
       "digital marketer",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+    url: "https://volfcan.com",
+    siteName: "volfcan.com",
     images: [
       {
         url: "",

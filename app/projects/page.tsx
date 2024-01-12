@@ -33,7 +33,11 @@ export default async function ProjectsPage() {
       (project) =>
         project.slug !== featured.slug &&
         project.slug !== top3.slug &&
-        project.slug !== top4.slug,
+        project.slug !== top4.slug &&
+        project.slug !== top5.slug &&
+        project.slug !== top6.slug &&
+        project.slug !== top7.slug &&
+        project.slug !== top8.slug,
     )
     .sort(
       (a, b) =>
@@ -49,10 +53,8 @@ export default async function ProjectsPage() {
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             projects
           </h2>
-        
         </div>
         <div className="w-full h-px bg-zinc-800" />
-
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
           <Card>
             <Link href={`/projects/${featured.slug}`}>
@@ -76,7 +78,6 @@ export default async function ProjectsPage() {
                     )}
                   </span>
                 </div>
-
                 <h2
                   id="featured-post"
                   className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
@@ -94,21 +95,18 @@ export default async function ProjectsPage() {
               </article>
             </Link>
           </Card>
-
-      
         </div>
-
         <div className="w-full h-px bg-zinc-800" />
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             products
           </h2>
           <p className="mt-4 text-zinc-400">
-            products and tools i am currently building
+            products and tools i am building currently 
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3 border-t border-gray-900/10 md:grid-cols-3 lg:border-t-0 ">
-            {[top3, top7, top4, top6, top8].map((project) => (
+            {[top3, top7, top4, top6].map((project) => (
               <Card key={project.slug}>
                 <Article project={project} views={views[project.slug] ?? 0} />
               </Card>
@@ -131,11 +129,27 @@ export default async function ProjectsPage() {
               </Card>
             ))}
           </div> */}
-                
         {/* <div className="w-full h-px bg-zinc-800" /> */}
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            content marketing & design
+            ui & ux
+          </h2>
+          <p className="mt-4 text-zinc-400">
+            ui & ux design for digital products
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3 border-t border-gray-900/10 md:grid-cols-3 lg:border-t-0 ">
+            {[top5, top8].map((project) => (
+              <Card key={project.slug}>
+                <Article project={project} views={views[project.slug] ?? 0} />
+              </Card>
+            ))}
+          </div>
+
+        <div className="w-full h-px bg-zinc-800" />
+        <div className="max-w-2xl mx-auto lg:mx-0">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+            digital marketing & design
           </h2>
           <p className="mt-4 text-zinc-400">
             instagram, youtube, facebook and tiktok promotional videos
