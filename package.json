@@ -16,6 +16,7 @@
     "@notion-render/hljs-plugin": "^0.0.2",
     "@notionhq/client": "^2.2.13",
     "@upstash/redis": "^1.23.3",
+    "@vercel/analytics": "^1.2.2",
     "axios": "^1.6.2",
     "contentlayer": "^0.3.4",
     "esbuild": "^0.19.11",
