@@ -10,11 +10,11 @@ export const metadata: Metadata = {
     default: "volfcan.com",
     template: "%s | volfcan.com",
   },
-  description: "digital marketer",
+  description: "product designer",
   metadataBase: new URL("https://volfcan.com"),
   openGraph: {
     title: "volfcan.com",
-    description: "digital marketer",
+    description: "product designer",
     url: "https://volfcan.com",
     siteName: "volfcan.com",
     images: [

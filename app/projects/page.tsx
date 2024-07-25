@@ -6,6 +6,8 @@ import { Card } from "../components/card";
 import { Article } from "./article";
 import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
+import { stack } from "../constants/stack";
+import { BsTerminal } from "react-icons/bs";
 
 const redis = Redis.fromEnv();
 
@@ -15,18 +17,23 @@ export default async function ProjectsPage() {
     await redis.mget<number[]>(
       ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
     )
-  ).reduce((acc, v, i) => {
-    acc[allProjects[i].slug] = v ?? 0;
-    return acc;
-  }, {} as Record<string, number>);
+  ).reduce(
+    (acc, v, i) => {
+      acc[allProjects[i].slug] = v ?? 0;
+      return acc;
+    },
+    {} as Record<string, number>,
+  );
 
   const featured = allProjects.find((project) => project.slug === "workflow")!;
-  const top3 = allProjects.find((project) => project.slug === "havadurumu15" )!;
-  const top4 = allProjects.find((project) => project.slug === "volfcan.com" )!;
-  const top5 = allProjects.find((project) => project.slug === "flora-garden" )!;
-  const top6 = allProjects.find((project) => project.slug === "image-classifier" )!;
-  const top7 = allProjects.find((project) => project.slug === "price-scraper" )!;
-  const top8 = allProjects.find((project) => project.slug === "twitch-clone" )!;
+  const top3 = allProjects.find((project) => project.slug === "havadurumu15")!;
+  const top4 = allProjects.find((project) => project.slug === "volfcan.com")!;
+  const top5 = allProjects.find((project) => project.slug === "flora-garden")!;
+  const top6 = allProjects.find(
+    (project) => project.slug === "image-classifier",
+  )!;
+  const top7 = allProjects.find((project) => project.slug === "price-scraper")!;
+  const top8 = allProjects.find((project) => project.slug === "twitch-clone")!;
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
@@ -102,16 +109,45 @@ export default async function ProjectsPage() {
             products
           </h2>
           <p className="mt-4 text-zinc-400">
-            products and tools i am building currently 
+            products and tools i am building currently
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3 border-t border-gray-900/10 md:grid-cols-3 lg:border-t-0 ">
-            {[top3, top7, top4, top6].map((project) => (
+        <div className="relative z-50 overflow-hidden grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3 border-t border-gray-900/10 md:grid-cols-3 lg:border-t-0">
+          <div className="grid gap-4">
+            {[top3, top4].map((project) => (
               <Card key={project.slug}>
                 <Article project={project} views={views[project.slug] ?? 0} />
+                <div className="px-8 gap-x-2 items-center flex stroke-1  text-gray-500">
+                  {stack.nextjs.icon}
+                  {stack.react.icon}
+                  {stack.tailwindcss.icon}
+                  {stack.typescript.icon}
+                </div>
+                <div className="m-8 flex flex-row space-x-2 mt-4 items-center px-0.5">
+                  <BsTerminal className="h-4 w-4 stroke-0.5 text-zinc-500 group-hover:text-cyan-500" />
+                  <p className="text-zinc-500 group-hover:text-cyan-500 text-xs">
+                    View Source
+                  </p>
+                </div>
+              </Card>
+            ))}
+            {[top7, top6].map((project) => (
+              <Card key={project.slug}>
+                <Article project={project} views={views[project.slug] ?? 0} />
+                <div className="flex px-8 gap-x-2 items-center flex text-gray-500 stroke-1">
+                  {stack.python.icon}
+                  {stack.flask.icon}
+                </div>
+                <div className="m-8 flex flex-row space-x-2 mt-4 items-center px-0.5">
+                  <BsTerminal className="h-4 w-4 stroke-0.5 text-zinc-500 group-hover:text-cyan-500" />
+                  <p className="text-zinc-500 group-hover:text-cyan-500 text-xs">
+                    View Source
+                  </p>
+                </div>
               </Card>
             ))}
           </div>
+        </div>
 
         <div className="w-full h-px bg-zinc-800" />
         {/* <div className="max-w-2xl mx-auto lg:mx-0">
@@ -139,12 +175,12 @@ export default async function ProjectsPage() {
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3 border-t border-gray-900/10 md:grid-cols-3 lg:border-t-0 ">
-            {[top5, top8].map((project) => (
-              <Card key={project.slug}>
-                <Article project={project} views={views[project.slug] ?? 0} />
-              </Card>
-            ))}
-          </div>
+          {[top5, top8].map((project) => (
+            <Card key={project.slug}>
+              <Article project={project} views={views[project.slug] ?? 0} />
+            </Card>
+          ))}
+        </div>
 
         <div className="w-full h-px bg-zinc-800" />
         <div className="max-w-2xl mx-auto lg:mx-0">
@@ -188,6 +224,3 @@ export default async function ProjectsPage() {
     </div>
   );
 }
-
-
-
