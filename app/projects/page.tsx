@@ -8,6 +8,7 @@ import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 import { stack } from "../constants/stack";
 import { BsTerminal } from "react-icons/bs";
+import { Experience } from "../components/experience";
 
 const redis = Redis.fromEnv();
 
@@ -102,6 +103,7 @@ export default async function ProjectsPage() {
               </article>
             </Link>
           </Card>
+          <Experience />
         </div>
         <div className="w-full h-px bg-zinc-800" />
         <div className="max-w-2xl mx-auto lg:mx-0">
