@@ -9,6 +9,8 @@ import { Eye } from "lucide-react";
 import { stack } from "../constants/stack";
 import { BsTerminal } from "react-icons/bs";
 import { Experience } from "../components/experience";
+import Iframe from "../components/iframe";
+import { Timeline } from "../components/timeline";
 
 const redis = Redis.fromEnv();
 
@@ -183,7 +185,15 @@ export default async function ProjectsPage() {
             </Card>
           ))}
         </div>
-
+        <div className="py-16 gap-4">
+          <h2 className="text-3xl py-8 text-zinc-100 font-bold tracking-tight sm:text-4xl">
+            figma design timeline
+          </h2>
+          <Timeline />
+          {/* <div>
+            <Iframe />
+          </div> */}
+        </div>
         <div className="w-full h-px bg-zinc-800" />
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">

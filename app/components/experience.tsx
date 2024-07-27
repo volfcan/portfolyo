@@ -14,7 +14,7 @@ export const Experience = () => {
     workExperience[0],
   );
   return (
-    <div className="max-w-5xl mx-auto px-8">
+    <div className="max-w-5xl px-8">
       <h1 className="text-white tracking-tight text-2xl md:text-3xl font-bold max-w-5xl mx-auto mt-20 md:mt-20">
         Work Experience
       </h1>
@@ -92,9 +92,9 @@ export const Experience = () => {
                 <h1 className="text-2xl font-bold text-zinc-100">
                   {activeWorkExperience?.role}
                   {""}
-                  <span className="text-cyan-500">
+                  {/* <span className="text-cyan-500">
                     @ {activeWorkExperience?.company}
-                  </span>
+                  </span> */}
                 </h1>
                 <div className="text-zinc-400 text-sm tracking-widest">
                   {moment(activeWorkExperience?.startDate).format("MMM YYYY")} -

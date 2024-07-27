@@ -1,8 +1,9 @@
+"use client";
+
 import clsx from "clsx";
 import React, { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 import styles from "./style.module.css";
-
 const Beam = ({ showBeam, className }: any) => {
   const cn = (...values: any) => clsx(twMerge(values));
   const meteorRef = useRef<any>(null);
